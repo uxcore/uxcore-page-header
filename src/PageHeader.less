@@ -1,0 +1,111 @@
+/**
+ * PageHeader Component Style for uxcore
+ * @author eternalsky
+ *
+ * Copyright 2017-2018, Uxcore Team, Alinw.
+ * All rights reserved.
+ */
+
+@__page-header-prefix-cls: kuma-page-header;
+.@{__page-header-prefix-cls} {
+  padding: 20px 44px;
+}
+
+.@{__page-header-prefix-cls}-box {
+  padding: 24px 0 16px;
+  display: flex;
+}
+
+.@{__page-header-prefix-cls}-box-item {
+  flex: auto;
+  width: 0;
+}
+
+.@{__page-header-prefix-cls}-box-item-logo {
+  flex: 0 1 auto;
+  width: auto;
+}
+
+.@{__page-header-prefix-cls}-box-item-main {
+  &__with-logo {
+    padding-left: 16px;
+  }
+}
+
+.@{__page-header-prefix-cls}-main-item {
+  display: flex;
+  &__has-left {
+    .@{__page-header-prefix-cls}-action,
+    .@{__page-header-prefix-cls}-extra-content {
+      padding-left: 64px;
+    }
+  }
+}
+
+.@{__page-header-prefix-cls}-title,
+.@{__page-header-prefix-cls}-action,
+.@{__page-header-prefix-cls}-content,
+.@{__page-header-prefix-cls}-extra-content {
+  flex: auto;
+  width: 0;
+}
+
+.@{__page-header-prefix-cls}-action,
+.@{__page-header-prefix-cls}-extra-content {
+  text-align: right;
+}
+
+.@{__page-header-prefix-cls}-title {
+  font-size: 20px;
+  font-weight: normal;
+  color: @dark-alpha-2;
+  margin: 0;
+}
+
+.@{__page-header-prefix-cls}-content {
+  padding-top: 20px;
+}
+
+.@{__page-header-prefix-cls}-extra-content {
+  padding-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .@{__page-header-prefix-cls}-main-item {
+    display: block;
+    &__has-left {
+      .@{__page-header-prefix-cls}-action,
+      .@{__page-header-prefix-cls}-extra-content {
+        padding-left: 0;
+      }
+    }
+  }
+  .@{__page-header-prefix-cls}-title,
+  .@{__page-header-prefix-cls}-action,
+  .@{__page-header-prefix-cls}-content,
+  .@{__page-header-prefix-cls}-extra-content {
+    width: auto;
+  }
+  .@{__page-header-prefix-cls}-action,
+  .@{__page-header-prefix-cls}-extra-content {
+    text-align: left;
+  }
+  .@{__page-header-prefix-cls}-action {
+    padding-top: 20px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .@{__page-header-prefix-cls}-box {
+    display: block;
+  }
+  .@{__page-header-prefix-cls}-box-item {
+    width: auto;
+  }
+  .@{__page-header-prefix-cls}-box-item-main {
+    margin-top: 20px;
+    &__with-logo {
+      padding-left: 0px;
+    }
+  }
+}
