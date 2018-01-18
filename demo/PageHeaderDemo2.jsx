@@ -29,9 +29,9 @@ class Demo extends React.Component {
   render() {
     const tab = (
       <Tabs defaultActiveKey="2" type="open">
-        <TabPane tab="选项卡一" key="1">选项卡一</TabPane>
-        <TabPane tab="选项卡二" key="2">选项卡二</TabPane>
-        <TabPane tab="选项卡三" key="3">选项卡三</TabPane>
+        <TabPane tab="页签" key="1" />
+        <TabPane tab="页签二" key="2" />
+        <TabPane tab="页签三" key="3" />
       </Tabs>
     );
     const crumb = (

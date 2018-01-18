@@ -121,13 +121,25 @@ class PageHeader extends React.Component {
     );
   }
 
+  renderTab() {
+    const { tab, prefixCls } = this.props;
+    if (tab) {
+      return (
+        <div className={`${prefixCls}-tab`}>
+          {tab}
+        </div>
+      );
+    }
+    return null;
+  }
+
   render() {
-    const { tab, crumb, prefixCls, className } = this.props;
+    const { crumb, prefixCls, className } = this.props;
     return (
       <div className={classnames(prefixCls, className)}>
         {crumb}
         {this.renderContent()}
-        {tab}
+        {this.renderTab()}
       </div>
     );
   }
