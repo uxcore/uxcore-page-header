@@ -9,6 +9,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
+function uid(len = 7) {
+  return Math.random().toString(35).substr(2, len);
+}
+
 class PageHeader extends React.Component {
   static defaultProps = {
     prefixCls: 'kuma-page-header',
@@ -126,11 +130,24 @@ class PageHeader extends React.Component {
   }
 
   renderTab() {
-    const { tab, prefixCls } = this.props;
+    const { tab, prefixCls, containerWidth } = this.props;
+    const newProps = {};
+    let style = null;
+    const extraClassName = `kuma-tab-${uid()}`;
+    if (containerWidth) {
+      newProps.tabContentStyle = {
+        width: containerWidth,
+        margin: '0 auto',
+      };
+      style = (
+        <style>{`.${extraClassName} .kuma-tab-nav-container {width: ${containerWidth}px; margin: 0 auto;}`}</style>
+      );
+    }
     if (tab) {
       return (
-        <div className={`${prefixCls}-tab`}>
-          {tab}
+        <div className={`${prefixCls}-tab ${extraClassName}`}>
+          {style}
+          {React.cloneElement(tab, newProps)}
         </div>
       );
     }
@@ -146,8 +163,8 @@ class PageHeader extends React.Component {
             {crumb}
             {this.renderContent()}
           </div>
-          {this.renderTab()}
         </div>
+        {this.renderTab()}
       </div>
     );
   }
