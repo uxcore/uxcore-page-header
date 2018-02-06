@@ -74,6 +74,7 @@ Yes please! See the [CONTRIBUTING](https://github.com/uxcore/uxcore/blob/master/
 |---|---|---|---|---|
 |prefixCls|String|No|kuma-page-header|类名前缀，不使用 kuma 主题时使用|
 |className|String|No| | 增加额外的 class，用于自定义 |
+|containerWidth|number|No|  | 内容容器宽度 |
 |crumb|React Element|No| |面包屑区域，接受一个标准的 uxcore-crumb 实例|
 |title|React Element|No| |标题区域|
 |action|React Element|No| |动作面板区域，默认右对齐|

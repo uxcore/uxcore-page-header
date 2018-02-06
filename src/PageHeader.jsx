@@ -24,6 +24,10 @@ class PageHeader extends React.Component {
     content: PropTypes.node,
     action: PropTypes.node,
     extraContent: PropTypes.node,
+    containerWidth: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+    ]),
   };
 
   static displayName = 'PageHeader';
@@ -134,12 +138,16 @@ class PageHeader extends React.Component {
   }
 
   render() {
-    const { crumb, prefixCls, className } = this.props;
+    const { crumb, prefixCls, className, containerWidth } = this.props;
     return (
       <div className={classnames(prefixCls, className)}>
-        {crumb}
-        {this.renderContent()}
-        {this.renderTab()}
+        <div className={`${prefixCls}-inner`} style={{ width: containerWidth }}>
+          <div className={`${prefixCls}-top-container`}>
+            {crumb}
+            {this.renderContent()}
+          </div>
+          {this.renderTab()}
+        </div>
       </div>
     );
   }

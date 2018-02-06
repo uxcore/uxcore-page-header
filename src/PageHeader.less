@@ -8,8 +8,15 @@
 
 @__page-header-prefix-cls: kuma-page-header;
 .@{__page-header-prefix-cls} {
-  padding: 20px 44px 0px;
   border-bottom: 1px solid @split-line-color;
+}
+
+.@{__page-header-prefix-cls}-inner {
+  margin: 0 auto;
+}
+
+.@{__page-header-prefix-cls}-top-container {
+  padding: 20px 44px 0px;
 }
 
 .@{__page-header-prefix-cls}-box {
@@ -73,6 +80,9 @@
 
 .@{__page-header-prefix-cls}-tab {
   margin-bottom: -1px;
+  .kuma-tab-bar {
+    margin: 0 44px; 
+  }
   .kuma-tab.kuma-tab-open {
     background: transparent;
     > .kuma-tab-bar {
