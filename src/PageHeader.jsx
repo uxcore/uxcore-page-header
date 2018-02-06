@@ -140,7 +140,13 @@ class PageHeader extends React.Component {
         margin: '0 auto',
       };
       style = (
-        <style>{`.${extraClassName} .kuma-tab-nav-container {width: ${containerWidth}px; margin: 0 auto;}`}</style>
+        <style>{
+          `.${extraClassName} .kuma-tab-nav-container {
+              width: ${typeof containerWidth === 'number' ? (`${containerWidth}px`) : containerWidth}; 
+              margin: 0 auto;
+            }
+          `
+        }</style>
       );
     }
     if (tab) {
