@@ -22,8 +22,8 @@ class Demo extends React.Component {
     const tab = (
       <Tabs defaultActiveKey="2" type="open">
         <TabPane tab="页签" key="1">选项一</TabPane>
-        <TabPane tab="页签二" key="2" />
-        <TabPane tab="页签三" key="3" />
+        <TabPane tab="页签二" key="2">选项二</TabPane>
+        <TabPane tab="页签三" key="3">选项三</TabPane>
       </Tabs>
     );
     const crumb = (
@@ -57,7 +57,7 @@ class Demo extends React.Component {
       logo,
       content,
       extraContent,
-      containerWidth: 1180,
+      containerWidth: '80%',
     };
     return (
       <div>

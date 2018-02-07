@@ -135,14 +135,15 @@ class PageHeader extends React.Component {
     let style = null;
     const extraClassName = `kuma-tab-${uid()}`;
     if (containerWidth) {
+      const tabWidth = typeof containerWidth === 'number' ? (`${containerWidth}px`) : containerWidth;
       newProps.tabContentStyle = {
-        width: containerWidth,
+        width: `calc(${tabWidth} - 88px)`,
         margin: '0 auto',
       };
       style = (
         <style>{
           `.${extraClassName} .kuma-tab-nav-container {
-              width: ${typeof containerWidth === 'number' ? (`${containerWidth}px`) : containerWidth}; 
+              width: calc(${tabWidth} - 88px); 
               margin: 0 auto;
             }
           `
