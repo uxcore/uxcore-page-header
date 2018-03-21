@@ -57,7 +57,7 @@ class Demo extends React.Component {
       logo,
       content,
       extraContent,
-      containerWidth: '80%',
+      // containerWidth: '80%',
     };
     return (
       <div>

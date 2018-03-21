@@ -133,23 +133,24 @@ class PageHeader extends React.Component {
     const { tab, prefixCls, containerWidth } = this.props;
     const newProps = {};
     let style = null;
+    let tabWidth = '100%';
     const extraClassName = `kuma-tab-${uid()}`;
     if (containerWidth) {
-      const tabWidth = typeof containerWidth === 'number' ? (`${containerWidth}px`) : containerWidth;
+      tabWidth = typeof containerWidth === 'number' ? (`${containerWidth}px`) : containerWidth;
       newProps.tabContentStyle = {
         width: `calc(${tabWidth} - 88px)`,
         margin: '0 auto',
       };
-      style = (
-        <style>{
-          `.${extraClassName} .kuma-tab-nav-container {
+    }
+    style = (
+      <style>{
+        `.${extraClassName} .kuma-tab-nav-container {
               width: calc(${tabWidth} - 88px); 
               margin: 0 auto;
             }
           `
-        }</style>
-      );
-    }
+      }</style>
+    );
     if (tab) {
       return (
         <div className={`${prefixCls}-tab ${extraClassName}`}>
