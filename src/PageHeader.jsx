@@ -119,10 +119,14 @@ class PageHeader extends React.Component {
     return null;
   }
 
-  renderContent() {
+  renderContent(crumb) {
     const { prefixCls } = this.props;
     return (
-      <div className={`${prefixCls}-box`}>
+      <div
+        className={classnames(`${prefixCls}-box`, {
+          [`${prefixCls}-box__has-crumb`]: !!crumb,
+        })}
+      >
         {this.renderLogo()}
         {this.renderMain()}
       </div>
@@ -169,7 +173,7 @@ class PageHeader extends React.Component {
         <div className={`${prefixCls}-inner`} style={{ width: containerWidth }}>
           <div className={`${prefixCls}-top-container`}>
             {crumb}
-            {this.renderContent()}
+            {this.renderContent(crumb)}
           </div>
         </div>
         {this.renderTab()}
