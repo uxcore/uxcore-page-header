@@ -1,5 +1,9 @@
 # history
 
+## 0.1.10
+
+* `FIXED` tabContent width should not minus header padding
+
 ## 0.1.9
 
 * `FIXED` unexpected `padding-top` if there's no crumb 

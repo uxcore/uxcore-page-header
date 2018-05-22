@@ -142,7 +142,7 @@ class PageHeader extends React.Component {
     if (containerWidth) {
       tabWidth = typeof containerWidth === 'number' ? (`${containerWidth}px`) : containerWidth;
       newProps.tabContentStyle = {
-        width: `calc(${tabWidth} - 88px)`,
+        width: `${tabWidth}`,
         margin: '0 auto',
       };
     }
