@@ -50,13 +50,13 @@ class Demo extends React.Component {
       <div className="demo-extra-content">额外内容</div>
     );
     const headerProps = {
-      tab,
+      // tab,
       crumb,
-      title,
-      action,
-      logo,
-      content,
-      extraContent,
+      // title,
+      // action,
+      // logo,
+      // content,
+      // extraContent,
       // containerWidth: '80%',
     };
     return (

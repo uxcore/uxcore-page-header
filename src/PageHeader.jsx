@@ -14,9 +14,7 @@ function uid(len = 7) {
 }
 
 class PageHeader extends React.Component {
-  static defaultProps = {
-    prefixCls: 'kuma-page-header',
-  };
+  static displayName = 'PageHeader';
 
   static propTypes = {
     prefixCls: PropTypes.string,
@@ -34,7 +32,19 @@ class PageHeader extends React.Component {
     ]),
   };
 
-  static displayName = 'PageHeader';
+  static defaultProps = {
+    prefixCls: 'kuma-page-header',
+    className: undefined,
+    tab: undefined,
+    crumb: undefined,
+    logo: undefined,
+    title: undefined,
+    content: undefined,
+    action: undefined,
+    extraContent: undefined,
+    containerWidth: undefined,
+  };
+
 
   hasLogo() {
     const { logo } = this.props;
@@ -77,8 +87,16 @@ class PageHeader extends React.Component {
             [`${prefixCls}-main-item__has-left`]: this.hasLeft(),
           })}
         >
-          {title ? <h1 className={`${prefixCls}-title`}>{title}</h1> : null}
-          {action ? <div className={`${prefixCls}-action`}>{action}</div> : null}
+          {title ? (
+            <h1 className={`${prefixCls}-title`}>
+              {title}
+            </h1>
+          ) : null}
+          {action ? (
+            <div className={`${prefixCls}-action`}>
+              {action}
+            </div>
+          ) : null}
         </div>
       );
     }
@@ -94,8 +112,16 @@ class PageHeader extends React.Component {
             [`${prefixCls}-main-item__has-left`]: this.hasLeft(),
           })}
         >
-          {content ? <div className={`${prefixCls}-content`}>{content}</div> : null}
-          {extraContent ? <div className={`${prefixCls}-extra-content`}>{extraContent}</div> : null}
+          {content ? (
+            <div className={`${prefixCls}-content`}>
+              {content}
+            </div>
+          ) : null}
+          {extraContent ? (
+            <div className={`${prefixCls}-extra-content`}>
+              {extraContent}
+            </div>
+          ) : null}
         </div>
       );
     }
@@ -119,8 +145,9 @@ class PageHeader extends React.Component {
     return null;
   }
 
-  renderContent(crumb) {
-    const { prefixCls } = this.props;
+  renderContent() {
+    const { prefixCls, crumb } = this.props;
+    if (!this.hasLogo() && !this.hasTop() && !this.hasBottom()) return null;
     return (
       <div
         className={classnames(`${prefixCls}-box`, {
@@ -147,13 +174,15 @@ class PageHeader extends React.Component {
       };
     }
     style = (
-      <style>{
-        `.${extraClassName} .kuma-tab-nav-container {
+      <style>
+        {
+          `.${extraClassName} .kuma-tab-nav-container {
               width: calc(${tabWidth} - 88px); 
               margin: 0 auto;
             }
           `
-      }</style>
+        }
+      </style>
     );
     if (tab) {
       return (
@@ -166,14 +195,26 @@ class PageHeader extends React.Component {
     return null;
   }
 
+  renderCrumb() {
+    const { crumb, prefixCls } = this.props;
+    if (!crumb) return null;
+    return (
+      <div className={`${prefixCls}-crumb`}>
+        {crumb}
+      </div>
+    );
+  }
+
   render() {
-    const { crumb, prefixCls, className, containerWidth } = this.props;
+    const {
+      prefixCls, className, containerWidth,
+    } = this.props;
     return (
       <div className={classnames(prefixCls, className)}>
         <div className={`${prefixCls}-inner`} style={{ width: containerWidth }}>
           <div className={`${prefixCls}-top-container`}>
-            {crumb}
-            {this.renderContent(crumb)}
+            {this.renderCrumb()}
+            {this.renderContent()}
           </div>
         </div>
         {this.renderTab()}
@@ -183,4 +224,3 @@ class PageHeader extends React.Component {
 }
 
 export default PageHeader;
-
