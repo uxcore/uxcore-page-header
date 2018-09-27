@@ -1,5 +1,9 @@
 # history
 
+## 0.1.12
+
+* `CHANGED` support js style export
+
 ## 0.1.11
 
 * `FIXED` add PaddingBottom when only crumb exists
