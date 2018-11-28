@@ -18,11 +18,11 @@ import Pic from './PageHeaderPic';
 ReactDOM.render(
   <div>
     <Basic />
-    <Demo />
+    {/* <Demo />
     <Demo2 />
     <Step />
     <Filter />
-    <Pic />
+    <Pic /> */}
   </div>
   , document.getElementById('UXCoreDemo'));
 

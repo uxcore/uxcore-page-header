@@ -52,10 +52,10 @@ class Demo extends React.Component {
     const headerProps = {
       // tab,
       crumb,
-      // title,
-      // action,
-      // logo,
-      // content,
+      title,
+      action,
+      logo,
+      content,
       // extraContent,
       // containerWidth: '80%',
     };

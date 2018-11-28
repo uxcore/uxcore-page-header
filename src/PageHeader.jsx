@@ -66,6 +66,11 @@ class PageHeader extends React.Component {
     return !!(content || title);
   }
 
+  hasTab() {
+    const { tab } = this.props;
+    return !!tab;
+  }
+
   renderLogo() {
     const { logo, prefixCls } = this.props;
     if (this.hasLogo()) {
@@ -152,6 +157,8 @@ class PageHeader extends React.Component {
       <div
         className={classnames(`${prefixCls}-box`, {
           [`${prefixCls}-box__has-crumb`]: !!crumb,
+          [`${prefixCls}-box__has-tab`]: this.hasTab(),
+
         })}
       >
         {this.renderLogo()}
