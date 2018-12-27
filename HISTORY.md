@@ -1,5 +1,9 @@
 # history
 
+## 0.1.13
+
+* `CHANGED` fix tab style in pageHeader content will be overwriten.
+
 ## 0.1.12
 
 * `CHANGED` support js style export
