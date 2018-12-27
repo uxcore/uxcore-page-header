@@ -187,7 +187,7 @@ class PageHeader extends React.Component {
               width: calc(${tabWidth} - 88px); 
               margin: 0 auto;
             }
-            .${extraClassName} .kuma-tab-nav-container .kuma-tab-nav-container {
+            .${extraClassName} .kuma-tab-content .kuma-tab-nav-container {
               width: initial;
               margin: initial;
             }
